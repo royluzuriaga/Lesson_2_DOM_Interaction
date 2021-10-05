@@ -16,13 +16,14 @@
     <header>
       <h1>Vue Styling</h1>
     </header>
-    <section id="assignment">
+    <section id="assignment" id="app">
+      <div class="input-field">
       <!-- 1) Fetch the user input and use it as a CSS class -->
       <!-- The entered class should be added to the below paragraph -->
-      <input type="text" v-on:keyup="set" placeholder= "user1/user2" />
-      <div class="demo" :class="{visible: isButton, hide: !isButton}">
+      <input @keyup="getInput"  type="text" v-model="user" placeholder= "user1/user2" />
+      <div class="output" :class="[active ? 'visible' : 'hidden']">
       <!-- (available classes: "user1", "user2") -->
-      <p class="user">Style me!</p>
+      <p :class="{user1: user1, user2: user2}">Style me!</p>
     </div><br>
       <button @click="toggleParagraph">Toggle Paragraph</button>
       <!-- 2) Use the "visible" and "hidden" classes to show/ hide the above paragraph -->
